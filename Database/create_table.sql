@@ -1,15 +1,16 @@
 create table pegawai(
     pegawai_id varchar2(2) PRIMARY KEY,
-    nama_depan varchar(30),
-    nama_belakang varchar(30),
+    nama_depan varchar(30)NOT NULL,
+    nama_belakang varchar(30) NOT NULL,
     tanggal_lahir date,
     gaji float,
     jam_kerja number,
     pekerjaan_id number,
     halte_id number,
-    CONSTRAINT fk_pekerjaan FOREIGN KEY (pekerjaan_id) references pekerjaan(pekerjaan_id),
-    CONSTRAINT fk_halte FOREIGN KEY (halte_id) references halte(halte_id)
+    CONSTRAINT fk_pegawai_pekerjaan FOREIGN KEY (pekerjaan_id) references pekerjaan(pekerjaan_id),
+    CONSTRAINT fk_pegawai_halte FOREIGN KEY (halte_id) references halte(halte_id)
     );
+
 
 create table pekerjaan(
     pekerjaan_id number primary key,
